@@ -23,13 +23,15 @@ positions = {k: Pin(v, Pin.OUT) for k, v in position_to_pin.items()}
 digit = {'0': 'ABCDEF', '1': 'BC', '2': 'ABDEG', '3': 'ABCDG',
          '4': 'BCFG', '5': 'ACDFG', '6': 'ACDEFG', '7': 'ABC',
          '8': 'ABCDEFG', '9': 'ABCDFG',
-         'a': 'ABCEFG', 'b': 'CDEFG', 'c': 'DEG', 'd':  'BCDEG',
+         'a': 'ABCEFG', 'b': 'CDEFG', 'c': 'ADEF', 'd':  'BCDEG',
          'e': 'ADEFG', 'f': 'AEFG', '-': 'G', ' ': '',
-         'g': 'ABCDFG', 'h': 'CEFG', 'i': 'C', 'j': 'BCD',
-         'l': 'DEF', 'n': 'CEG', 'o': 'CDEG', 'p': 'ABEFG',
-         'r': 'EG', 's': 'ACDFG', 'u':'CDE', 'y': 'BCDFG',
-         'z': 'ABDEG',
-         'C': 'ADEF', 'H': 'BCEFG', 'I': 'BC', 'O': 'ABCDEF', 'U': 'BCDEF'}
+         'g': 'ACDEF', 'h': 'CEFG', 'i': 'C', 'j': 'BCDE', 'k': 'ACEFG',
+         'l': 'DEF', 'm':'ACEG' , 'n': 'CEG', 'o': 'CDEG', 'p': 'ABEFG',
+         'q': 'ABCFG', 'r': 'EG', 's': 'ACDFG', 't': 'DEFG', 'u':'BCDEF',
+         'v':'CDE', 'w': 'BDFG', 'x': 'BCEFG', 'y': 'BCDFG', 'z':'ABDG',
+         '!': 'B.', '.': '.', ',': 'CD', '?': 'ABEG', "'": 'B',
+         'H': 'BCEFG', 'I': 'EF'
+         }
 
 DIGIT_MISSING = 'ADG'
 
@@ -177,19 +179,18 @@ def test_position_render():
 
 
 def profess_love():
-    sentence = 'I loUe poly and dily'
-    for word in sentence.split():
-        render_word(word, duration=2)
+    sentence = 'I love poly and dily'
+    print_text(sentence, duration=1)
 
 
 def profess_more_love():
     text = '''
-    I loUe phil
-    I loUe andy
-    I loUe you bro
-    I loUe you sIs
+    I love phil
+    I love andy
+    I love you bro!
+    I love you sis!
     and
-    I loUe prue
+    I love prue
 
     here is a pico
     '''
@@ -197,20 +198,30 @@ def profess_more_love():
     return None
 
 
-def print_text(text):
+def print_text(text, duration=None, pause=None):
+    if pause is None:
+        pause = 2
     for line in text.split('\n'):
         for word in line.split():
-            render_word(word, duration=1)
-        utime.sleep(2)
+            render_word(word, duration=duration)
+        utime.sleep(pause)
     return None
 
 
 hugo_text = '''
 Hugo is the boss baby
-jac is a good dad
+jack is a good dad!
 
 here is a rasp bery pi pico
 '''
+
+
+def flash_love():
+    for dur in [0.05, 0.1, 0.15, 0.2]:
+        for _ in range(int(1/dur)):
+            render_word('poly', duration=dur)
+            render_word('dily', duration=dur)
+
 
 def main():
     profess_love()
