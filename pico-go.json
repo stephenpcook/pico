@@ -1,0 +1,5 @@
+{
+    "sync_folder": "",
+    "open_on_start": true,
+    "statusbar_buttons": ["status", "connect", "upload", "download", "run", "softreset", "global_settings", "project_settings"]
+}
