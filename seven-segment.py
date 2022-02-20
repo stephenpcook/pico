@@ -1,7 +1,6 @@
 import machine
 from machine import Pin
 import utime
-
 """
 Setup:
 LED display pins (1,2,3,4,5,7,10,11) are the anodes corresponding to the
@@ -14,9 +13,9 @@ pin_to_segment = 'ED.CGBFA'
 segment_to_pin = {'A':7, 'B':5, 'C':3, 'D': 1,
                   'E':0, 'F':6, 'G':4, '.': 2}
 
-position_to_pin = {0:20, 1: 21, 2: 19, 3: 18}
+position_to_pin = {0: 20, 1: 21, 2: 19, 3: 18}
 
-leds = {k: Pin(v, Pin.OUT) for k,v in segment_to_pin.items()}
+leds = {k: Pin(v, Pin.OUT) for k, v in segment_to_pin.items()}
 
 positions = {k: Pin(v, Pin.OUT) for k, v in position_to_pin.items()}
 
@@ -44,7 +43,7 @@ def clear_display():
 
 def display_digit(x, decimal=False):
     clear_display()
-    for seg in digit.get(x, DIGIT_MISSING): # type: ignore
+    for seg in digit.get(x, DIGIT_MISSING):  # type: ignore
         leds[seg].on()
     if decimal:
         leds['.'].on()
@@ -140,8 +139,8 @@ def render_word(word, decimal=None, duration=None, freq=None):
         duration = 5
     if freq is None:
         freq = 50
-    n_flashes = duration*freq
-    flash_time = 1/(4*freq)
+    n_flashes = duration * freq
+    flash_time = 1 / (4 * freq)
     word_four_chars = '{:4s}'.format(word)[:4]
     for _ in range(n_flashes):
         for i, letter in enumerate(word_four_chars):
@@ -158,8 +157,8 @@ def render_word(word, decimal=None, duration=None, freq=None):
 
 def temp():
     thermometer = machine.ADC(4)
-    th = 3.3*thermometer.read_u16()/65535
-    deg_c = 27 - (th-0.706)/0.00172
+    th = 3.3 * thermometer.read_u16() / 65535
+    deg_c = 27 - (th - 0.706) / 0.00172
     return deg_c
 
 
@@ -218,7 +217,7 @@ here is a rasp bery pi pico
 
 def flash_love():
     for dur in [0.05, 0.1, 0.15, 0.2]:
-        for _ in range(int(1/dur)):
+        for _ in range(int(1 / dur)):
             render_word('poly', duration=dur)
             render_word('dily', duration=dur)
 

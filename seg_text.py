@@ -16,7 +16,7 @@ I love pru!
 here is a pico
 '''
 
-rob_madin_song = '''
+brett_domino_song = '''
 she
 she had one job
 she ran the old dog
@@ -25,8 +25,8 @@ but not now she not
 why?
 'cos she too hot
 she fit
-i've
-i've got one job
+I've
+I've got one job
 too
 it's not too bad
 but bin man get sad
@@ -35,23 +35,23 @@ she the one for me
 but how can one ask her out?
 all I can say, it's
 did you put the bin out for the bin guy?
-it's all i'll ask
+it's all I'll ask
 did you put the bin out for the bin guy?
 it's all bin men ask
 it's bin day
 did you put the bin out?
 pls say yes
 yes, you put the bin out
-it's all i can ask her
+it's all I can ask her
 did you put the bin out for the bin guy?
-it's all i'll ask
+it's all I'll ask
 did you put the bin out for the bin guy
 it's all bin men ask
 it's bin day
 did you put the bin out?
 pls say yes
 yes, you put the bin out
-all i can ask her
+all I can ask her
 it's did you put the bin out for the bin guy?
 it's a song cald bin guy
 '''
